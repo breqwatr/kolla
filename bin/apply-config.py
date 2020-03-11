@@ -6,7 +6,6 @@ import configparser
 import os
 
 
-# 
 assert 'RELEASE' in os.environ, 'Env var RELEASE must be set'
 release = os.environ['RELEASE']
 supported_releases = ['stable/rocky', 'stable/stein', 'stable/train']
