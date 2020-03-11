@@ -35,12 +35,9 @@ default_config = 'conf/defaults.ini'
 apply_config(default_config, kolla_config)
 
 print ('Applying {} release configs'.format(release))
-if release == 'stable/rocky':
-    release_config = 'conf/stein.ini'
-    apply_config(release_config, kolla_config)
-elif release == 'stable/stein':
-    release_config = 'conf/stein.ini'
-    apply_config(release_config, kolla_config)
-elif release == 'stable/train':
-    release_config = 'conf/train.ini'
-    apply_config(release_config, kolla_config)
+release_configs = {
+    'stable/rocky': 'conf/rocky.ini',
+    'stable/stein': 'conf/stein.ini',
+    'stable/train': 'conf/train.ini',
+}
+apply_config(release_configs[release], kolla_config)
