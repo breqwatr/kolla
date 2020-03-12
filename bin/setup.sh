@@ -42,7 +42,7 @@ fi
 # Install Kolla dependencies
 deactivate 2>/dev/null
 rm -rf kolla-env/
-if [[ "$RELEASE" == "stable/rocky" || "$RELEASE" == "stable/stein" ]]; then
+if [[ "$RELEASE" == "rocky" || "$RELEASE" == "stein" ]]; then
   # These expect python2
   apt-get install -y \
     python \
@@ -63,7 +63,7 @@ source kolla-env/bin/activate
 
 # Clone kolla from their GitHub
 rm -rf kolla/
-git clone --single-branch --branch $RELEASE https://github.com/openstack/kolla.git
+git clone --single-branch --branch "stable/$RELEASE" https://github.com/openstack/kolla.git
 
 # Install tox for Kolla and the deps for this project's python code
 pip install -U pip
@@ -82,5 +82,7 @@ bin/apply-config.py
 mkdir -p /etc/kolla
 cp kolla/etc/kolla/kolla-build.conf /etc/kolla/
 
+# Apply the image template overrides
+cp conf/template-overrides.j2 /etc/kolla
 
 

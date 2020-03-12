@@ -10,7 +10,7 @@ It expects an Ubuntu server as a base OS.
 
 Select a release:
 ```bash
-export RELEASE="stable/stein"
+export RELEASE="stein"
 ```
 
 Run the setup script:
@@ -21,6 +21,14 @@ bin/setup.sh
 
 Run the build script:
 ```bash
+# Build all the images in the profile for the defined RELEASE
 bin/kolla-build.sh
+
+# Build a specific image
+bin/kolla-build.sh cinder-volume
+
+
+# Build an image for a registry and push it
+bin/kolla-build.sh --registry <registry> cinder-volume
 ```
 

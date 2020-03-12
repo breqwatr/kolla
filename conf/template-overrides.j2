@@ -1,0 +1,6 @@
+{% extends parent_template %}
+
+# Cinder Volume
+{% block cinder_volume_ubuntu_setup %}
+RUN pip install purestorage
+{% endblock %}
