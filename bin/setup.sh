@@ -71,11 +71,9 @@ pip install tox
 pip install kolla/.
 
 # Generate the Kolla config
-if [[ ! -f etc/kolla/kolla-build.conf ]]; then
-  pushd kolla
-  tox -e genconfig
-  popd
-fi
+pushd kolla
+tox -e genconfig
+popd
 
 # Apply the config for this release
 bin/apply-config.py
