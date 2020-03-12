@@ -12,7 +12,7 @@ fi
 
 # Confirm the release is supported
 if [[ "$RELEASE" == "" ]]; then
-  echo "ERROR: Environment variable '\$RELEASE' must be set. Example: 'stable/stein'"
+  echo "ERROR: Environment variable '\$RELEASE' must be set. Example: 'stein'"
   echo "       Check the branch list in Kolla's github for valid options"
   exit 1
 fi
