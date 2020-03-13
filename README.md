@@ -49,7 +49,7 @@ IMAGE_REPO_NAME		(optional)		When empty, all images for the RELEASE are built.
 						When defined, only that image is built.
 						Example: cinder-volume
 
-IMAGE_TAG		(optional)		When blank, a date-stamp is used as the image tag.
+IMAGE_TAG		(optional)		When blank, "$RELEASE-$TIMESTAMP" is used as the image tag.
 						When defined, each image is tagged as <image>:<IMAGE_TAG> 
 						Example: stable-stein
 
