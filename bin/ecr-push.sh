@@ -10,18 +10,13 @@ if [[ "$AWS_DEFAULT_REGION" == "" ]]; then
   exit 1
 fi
 
-if [[ "$RELEASE" == "" ]]; then
-  echo "ERROR: \$RELEASE must be defined"
-  exit 1
-fi
-
 # Log in
 $(aws ecr get-login --no-include-email --region ca-central-1)
 
 # Push all the newly created images
 docker images | tail -n +2 | while read line; do
   name=$(echo $line | awk '{print $1}')
-  tag="$RELEASE-$(echo $line | awk '{print $2}')"
+  tag=$(echo $line | awk '{print $2}')
   url="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
   base_name="$name:$tag"
   ecr_name="$url/$base_name"
