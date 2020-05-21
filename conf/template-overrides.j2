@@ -2,5 +2,8 @@
 
 # Cinder Volume
 {% block cinder_volume_ubuntu_setup %}
+# Pure Storage plugin
 RUN pip install purestorage
+# EMC Unity plugin
+RUN pip install storops
 {% endblock %}
