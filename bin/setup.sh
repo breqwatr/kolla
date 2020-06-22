@@ -55,7 +55,8 @@ else
   apt-get install -y \
     python3 \
     python3-setuptools \
-    python3-virtualenv
+    python3-virtualenv \
+    python3-venv
   python3 -m venv kolla-env
 fi
 source kolla-env/bin/activate
